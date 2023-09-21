@@ -1,59 +1,33 @@
 ---
 layout: archive
-title: "CV"
-permalink: /cv/
+title: "Publications"
+permalink: /publications/
 author_profile: true
-redirect_from:
-  - /resume
 ---
 
-{% include base_path %}
+{% if author.googlescholar %}
+  You can also find my articles on <u><a href="{{author.googlescholar}}">my Google Scholar profile</a>.</u>
+{% endif %}
 
-Education
-======
-* B.S. in GitHub, GitHub University, 2012
-* M.S. in Jekyll, GitHub University, 2014
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
+<!-- {% include base_path %} -->
 
-Work experience
-======
-* Summer 2015: Research Assistant
-  * Github University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
+<!-- {% for post in site.publications reversed %}
+  {% include archive-single.html %}
+{% endfor %} -->
 
-* Fall 2015: Research Assistant
-  * Github University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
-  
-Skills
+Journal Papers
 ======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
+Z. Yuan, A. W. Hall, S. Zhou, L. Brunke, M. Greeff, J. Panerati, A.P. Schoellig, "safe-control-gym: a Unified Benchmark Suite for Safe Learning-based Control and Reinforcement Learning," in IEEE Robotics and Automation Letters, 7:4, 11142-11149, 2022. [[paper](https://ieeexplore.ieee.org/document/9849119)] [[preprint](https://arxiv.org/abs/2109.06325)]
 
-Publications
+Conference Papers
 ======
-  <ul>{% for post in site.publications %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Talks
-======
-  <ul>{% for post in site.talks %}
-    {% include archive-single-talk-cv.html %}
-  {% endfor %}</ul>
-  
-Teaching
-======
-  <ul>{% for post in site.teaching %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Service and leadership
-======
-* Currently signed in to 43 different slack teams
+Z. Yuan, A. W. Hall, S. Zhou, L. Brunke, M. Greeff, J. Panerati, A.P. Schoellig, "safe-control-gym: a Unified Benchmark Suite for Safe Learning-based Control and Reinforcement Learning," in IEEE Robotics and Automation Letters, 7:4, 11142-11149, 2022. [[paper](https://ieeexplore.ieee.org/document/9849119)] [[preprint](https://arxiv.org/abs/2109.06325)]
+
+<!-- Workshop Papers
+====== -->
+
+<!-- Preprints
+====== -->
+<!--
+Theses
+====== -->
