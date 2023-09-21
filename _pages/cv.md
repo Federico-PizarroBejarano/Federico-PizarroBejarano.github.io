@@ -1,33 +1,22 @@
 ---
 layout: archive
-title: "Publications"
-permalink: /publications/
+title: "CV"
+permalink: /cv/
 author_profile: true
+redirect_from:
+  - /resume
 ---
 
-{% if author.googlescholar %}
-  You can also find my articles on <u><a href="{{author.googlescholar}}">my Google Scholar profile</a>.</u>
-{% endif %}
+{% include base_path %}
 
-<!-- {% include base_path %} -->
-
-<!-- {% for post in site.publications reversed %}
-  {% include archive-single.html %}
-{% endfor %} -->
-
-Journal Papers
+Education
 ======
-Z. Yuan, A. W. Hall, S. Zhou, L. Brunke, M. Greeff, J. Panerati, A.P. Schoellig, "safe-control-gym: a Unified Benchmark Suite for Safe Learning-based Control and Reinforcement Learning," in IEEE Robotics and Automation Letters, 7:4, 11142-11149, 2022. [[paper](https://ieeexplore.ieee.org/document/9849119)] [[preprint](https://arxiv.org/abs/2109.06325)]
+* **PhD in Aerospace Science & Engineering, University of Toronto, since 2021 (expected 2026)**
+  * Supervised by Prof. Angela Schoellig and Prof. Tim Barfoot
+* **B.ASc. in Engineering Science, University of Toronto, 2016 - 2021**
 
-Conference Papers
+Work experience
 ======
-Z. Yuan, A. W. Hall, S. Zhou, L. Brunke, M. Greeff, J. Panerati, A.P. Schoellig, "safe-control-gym: a Unified Benchmark Suite for Safe Learning-based Control and Reinforcement Learning," in IEEE Robotics and Automation Letters, 7:4, 11142-11149, 2022. [[paper](https://ieeexplore.ieee.org/document/9849119)] [[preprint](https://arxiv.org/abs/2109.06325)]
-
-<!-- Workshop Papers
-====== -->
-
-<!-- Preprints
-====== -->
-<!--
-Theses
-====== -->
+* **Vector Institute, Toronto, since 2021**
+  * Supervsied by Prof. Angela Schoellig
+  * Postgraduate student researcher
