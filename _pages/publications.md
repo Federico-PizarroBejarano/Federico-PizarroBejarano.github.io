@@ -17,17 +17,22 @@ author_profile: true
 
 Journal Papers
 ======
-Z. Yuan, A. W. Hall, S. Zhou, L. Brunke, M. Greeff, J. Panerati, A.P. Schoellig, "safe-control-gym: a Unified Benchmark Suite for Safe Learning-based Control and Reinforcement Learning," in IEEE Robotics and Automation Letters, 7:4, 11142-11149, 2022. [[paper](https://ieeexplore.ieee.org/document/9849119)] [[preprint](https://arxiv.org/abs/2109.06325)]
+A.H. Tan, F. Pizarro Bejarano, Y. Zhu, R. Ren, and G. Nejat, “Deep Reinforcement Learning for
+Decentralized Multi-Robot Exploration With Macro Actions,” IEEE Robotics and Automation Letters, 8(1):272–279, 2023. [[paper](https://ieeexplore.ieee.org/document/9963690)] [[preprint](https://arxiv.org/abs/2110.02181)]
 
 Conference Papers
 ======
-L. Brunke, S. Zhou, A.P. Schoellig, "Robust Predictive Output-Feedback Safety Filter for Uncertain Nonlinear Control Systems," in Proceedings of the 61st IEEE Conference on Decision and Control, 2022. [[paper](https://ieeexplore.ieee.org/abstract/document/9992834)] [[preprint](https://arxiv.org/abs/2212.08900)]
+F. Pizarro Bejarano, L. Brunke, and A.P. Schoellig, "Multi-Step Model Predictive Safety Filters: Reducing Chattering by Increasing the Prediction Horizon," in Proceedings of the 62st IEEE Conference on Decision and Control, 2023. [[preprint](https://arxiv.org/abs/2309.11453)]
 
 <!-- Workshop Papers
 ====== -->
 
-<!-- Preprints
-====== -->
+Preprints
+======
+S. Zhou, L. Brunke, A. Tao, A.W. Hall, F. Pizarro Bejarano, J. Panerati, and A.P. Schoellig, "What is the Impact of Releasing Code with Publications? Statistics from the Machine Learning, Robotics, and Control Communities," 2023. [[preprint](https://arxiv.org/abs/2308.10008)]
 
-<!-- Theses
-====== -->
+Theses
+======
+F. Pizarro Bejarano, “Research and Implementation of Decentralized Multi-Robot Coordination Methods Applied to Urban Search and Rescue,” Bachelor’s thesis, Toronto, 2021.
+Supervisor: Prof. Goldie Nejat (UofT)
+[[preprint](../files/Final_Report.pdf)]

@@ -10,7 +10,7 @@ locale                   : "en-US"
 title                    : "Federico Pizarro Bejarano"
 title_separator          : "-"
 name                     : &name "Federico Pizarro Bejarano"
-description              : &description "personal description"
+description              : &description "Personal Website"
 url                      : https://Federico-PizarroBejarano.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "Federico-PizarroBejarano/Federico-PizarroBejarano.github.io"
@@ -81,7 +81,7 @@ analytics:
 # Site Author
 author:
   name             : "Federico Pizarro Bejarano"
-  avatar           : "profile.png"
+  avatar           : "profile2.jpg"
   bio              : "PhD student at the University of Toronto"
   location         : # "Location"
   employer         :
