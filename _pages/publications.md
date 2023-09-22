@@ -22,7 +22,7 @@ Decentralized Multi-Robot Exploration With Macro Actions,” IEEE Robotics and A
 
 Conference Papers
 ======
-F. Pizarro Bejarano, L. Brunke, and A.P. Schoellig, "Multi-Step Model Predictive Safety Filters: Reducing Chattering by Increasing the Prediction Horizon," in Proceedings of the 62st IEEE Conference on Decision and Control, 2023. [[preprint](https://arxiv.org/abs/2309.11453)]
+F. Pizarro Bejarano, L. Brunke, and A.P. Schoellig, "Multi-Step Model Predictive Safety Filters: Reducing Chattering by Increasing the Prediction Horizon," in Proceedings of the 62nd IEEE Conference on Decision and Control, 2023. [[preprint](https://arxiv.org/abs/2309.11453)]
 
 <!-- Workshop Papers
 ====== -->
