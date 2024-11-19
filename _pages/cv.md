@@ -19,6 +19,8 @@ Education
 
 Work experience
 ======
+* **NASA Jet Propulsion Laboratory, Pasadena, 2024**
+  * Visiting researcher
 * **Vector Institute, Toronto, since 2021**
   * Supervsied by Prof. Angela Schoellig
   * Postgraduate student researcher
