@@ -28,7 +28,7 @@ Decentralized Multi-Robot Exploration With Macro Actions,” IEEE Robotics and A
 
 Conference Papers
 ======
-F. Pizarro Bejarano, B. Jones, D. Pastor Moreno, J. Bowkett, P.G. Backes, A.P. Schoellig, "ProDapt: Proprioceptive Adaptation using Long-term Memory Diffusion," IEEE International Conference on Robotics and Automation (ICRA), 2025. [[paper](https://ieeexplore.ieee.org/document/10383734)][[preprint](https://arxiv.org/abs/2309.11453)]
+F. Pizarro Bejarano, B. Jones, D. Pastor Moreno, J. Bowkett, P.G. Backes, A.P. Schoellig, "ProDapt: Proprioceptive Adaptation using Long-term Memory Diffusion," IEEE International Conference on Robotics and Automation (ICRA), 2025. [[preprint](https://arxiv.org/abs/2503.00193)]
 
 F. Pizarro Bejarano, L. Brunke, and A.P. Schoellig, "Multi-Step Model Predictive Safety Filters: Reducing Chattering by Increasing the Prediction Horizon," IEEE Conference on Decision and Control (CDC), 2023. [[paper](https://ieeexplore.ieee.org/document/10383734)][[preprint](https://arxiv.org/abs/2309.11453)]
 
