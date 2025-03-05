@@ -103,7 +103,7 @@ author:
   impactstory      : # "https://profiles.impactstory.org/u/xxxx-xxxx-xxxx-xxxx"
   lastfm           :
   linkedin         : "federico-pizarro-bejarano"
-  orcid            : "https://orcid.org/0000-0003-4566-6466"
+  orcid            : 
   pinterest        :
   soundcloud       :
   stackoverflow    : # http://stackoverflow.com/users/123456/username
@@ -116,6 +116,16 @@ author:
   youtube          :
   wikipedia        :
 
+# Publication Category - The following the list of publication categories and their headings
+publication_category:
+  journal:
+    title: 'Journal Articles'
+  conference:
+    title: 'Conference Papers'
+  thesis:
+    title: 'Theses'
+  workshop:
+    title: 'Workshops'
 
 # Reading Files
 include:
