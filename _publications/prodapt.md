@@ -1,7 +1,7 @@
 ---
 collection: publications
 title: "ProDapt: Proprioceptive Adaptation using Long-term Memory Diffusion"
-authors: <strong>F. Pizarro Bejarano</strong>, B. Jones, D. Pastor Moreno, J. Bowkett, P.G. Backes, A.P. Schoellig
+authors: <strong>F. Pizarro Bejarano</strong>, B. Jones, D. Pastor, J. Bowkett, P.G. Backes, A.P. Schoellig
 venue: IEEE International Conference on Robotics and Automation (ICRA)
 year: 2025
 date: 2025-01-01
