@@ -8,6 +8,6 @@ date: 2021-12-01
 image: ../images/publications/basc_thesis.png
 permalink: /publication/basc_thesis
 publication_category: thesis
-arxiv: ../files/Final_Report.pdf
+file: ../files/Final_Report.pdf
 github: https://github.com/Federico-PizarroBejarano/Decentralized-Multi-Robot-Exploration
 ---

@@ -12,7 +12,10 @@
                 <a href="{{ post.link }}"><i class="fas fa-fw fa-link zoom" aria-hidden="true"></i></a>
             {% endif %}
             {% if post.arxiv %}
-                <a href="{{ post.arxiv }}"><i class="fas fa-fw fa-file-pdf zoom" aria-hidden="true"></i></a>
+                <a href="{{ post.arxiv }}"><i class="ai ai-arxiv" aria-hidden="true"></i></a>
+            {% endif %}
+            {% if post.file %}
+                <a href="{{ post.file }}"><i class="fas fa-fw fa-file-pdf zoom" aria-hidden="true"></i></a>
             {% endif %}
             {% if post.github %}
                 <a href="{{ post.github }}"><i class="fab fa-fw fa-github zoom" aria-hidden="true"></i></a>
