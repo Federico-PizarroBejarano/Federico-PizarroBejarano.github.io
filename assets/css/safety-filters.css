@@ -34,3 +34,57 @@ code {
     overflow-x: auto;
     line-height: 1em;
 }
+
+hr {
+  margin: 0px;
+  border: none;
+  height: 2px;
+  color: lightgray;
+  background-color: lightgray;
+}
+
+.center-justify {
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.caption {
+  font-size: 0.9em;
+  color: gray;
+  text-align: justify;
+  text-align: center;
+  margin-top: 0;
+}
+
+.image-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0px;
+  justify-content: space-between;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+h2 {
+  font-size: 1.5em;
+  margin-top: 1.75em;
+}
+
+h3 {
+  font-size: 1.17em;
+  margin-top: 1.2em;
+}
+
+h4 {
+  font-size: 1em;
+  margin-top: 1em;
+  margin-bottom: 0;
+}
+
+p {
+  margin-top: 0.75em;
+  margin-bottom: 0.75em;
+}

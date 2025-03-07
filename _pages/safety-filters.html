@@ -10,7 +10,7 @@ author_profile: true
 
 
 <body>
-  <section id="header" style="width: 80%; margin: 0 auto; text-align: center;">
+  <section id="header" class="center-justify" style="width: 90%;">
     <h1>Improving Safety Filter Integration for Enhanced Reinforcement Learning in Robotics</h1>
     <div>
       <a href="./about.md">Federico Pizarro Bejarano</a><sup>1,3</sup>,
@@ -28,9 +28,6 @@ author_profile: true
       <a href="../files/GRC25_0189_FI.pdf" class="button">
         <i class="fas fa-file-pdf"></i> Paper
       </a>
-      <!-- <a href="#" class="button">
-        <i class="ai ai-arxiv"></i> arXiv
-      </a> -->
       <a href="https://www.youtube.com/watch?v=bfX6TGi7ZQg" class="button">
         <i class="fab fa-youtube"></i> Video
       </a>
@@ -46,7 +43,7 @@ author_profile: true
   </section>
 
 
-  <section id="abstract" style="width: 80%; margin: 0 auto; text-align: center;">
+  <section id="abstract" class="center-justify">
     <h2>Abstract</h2>
     <div style="text-align: justify;">
       <p>
@@ -55,183 +52,198 @@ author_profile: true
     </div>
   </section>
 
-  <hr style="margin: 0px; border: none; height: 2px; color: lightgray; background-color: lightgray;">
+  <hr>
 
-  <section id="body">
-    <div>
-      <h2 style="display: inline-block;">I - Multi-Step Safety Filters</h2>
-      <span style="margin: 1px">
-        &nbsp;
-        <a href="https://ieeexplore.ieee.org/document/10383734"><i class="fas fa-fw fa-link zoom" aria-hidden="true"></i></a>
-        <a href="https://arxiv.org/abs/2309.11453"><i class="ai ai-arxiv" aria-hidden="true"></i></a>
-        <a href="https://tinyurl.com/mpsf-code"><i class="fab fa-fw fa-github zoom" aria-hidden="true"></i></a>
-        <a href="https://tinyurl.com/mpsf-video"><i class="fab fa-youtube" aria-hidden="true"></i></a>
-      </span>
-      <div style="width: 80%; margin: 0 auto; text-align: center;">
-        <img src="../images/safety-filters/multi-step.png" alt="Project Thumbnail">
-        <div>
-          <p style="font-size: 0.8em; color: gray"><strong><em>Fig. 1:</em></strong> Chattering caused by the standard one-step MPSF versus the multi-step MPSF. The multi-step filter reduces the peak-to-peak amplitude of chattering from 16.3cm to 3.6cm.</p>
-        </div>
-      </div>
-      <div style="text-align: justify;">
-        <p>The standard (one-step) safety filter objective function is:</p>
+  <section id="multi-step">
+    <h2 style="display: inline-block;">1 - Multi-Step Safety Filters</h2>
+    <span style="margin: 1px">
+      &nbsp;
+      <a href="https://ieeexplore.ieee.org/document/10383734"><i class="fas fa-fw fa-link zoom" aria-hidden="true"></i></a>
+      <a href="https://arxiv.org/abs/2309.11453"><i class="ai ai-arxiv" aria-hidden="true"></i></a>
+      <a href="https://tinyurl.com/mpsf-code"><i class="fab fa-fw fa-github zoom" aria-hidden="true"></i></a>
+      <a href="https://tinyurl.com/mpsf-video"><i class="fab fa-youtube" aria-hidden="true"></i></a>
+    </span>
 
-        <p>&nbsp;&nbsp;&nbsp;$J_{\text{SF},1} = \|\pi_{\text{uncert}}(\textbf{x}_k) - \textbf{u}_{0|k}\|^2,$</p>
-
-        <p>where $\textbf{x}_k$ is the state at time step $k$, $\pi_{\text{uncert}}$ is the RL policy, and $\textbf{u}_{0|k}$ is the input to be applied (the optimization variable). By only minimizing corrections in the next time step, the safety filter corrects actions at the last possible moment, causing chattering and jerky movement. By generalizing to multiple steps, the filter can minimize corrections over a longer prediction horizon:</p>
-
-        <p>&nbsp;&nbsp;&nbsp;$J_{\text{SF},M} = \sum_{j=0}^{M-1} w(j)\| \pi_{\text{uncert}}(\textbf{z}_{j|k}) - \textbf{u}_{j|k} \|^2,$</p>
-
-        <p>where $w(\cdot) : \mathbb{N}_{0} \to \mathbb{R}^+$ calculates the weights associated with the $j\text{-th}$ correction, $M$ is the filtering horizon, $\textbf{z}_{j|k}$ is the estimated future state at the $(k + j)$-th time step computed at time step $k$, and $\textbf{u}_{j|k}$ is the input at the $(k + j)$-th time step computed at time step $k$. The inputs are the optimization variables. This allows the agent to proactively correct actions to avoid unsafe states. </p>
-
-        <p><strong><em>Contributions:</em></strong> We propose generalizing the standard safety filter objective function to reduce chattering and other potentially unsafe corrective actions. We apply this approach to model predictive safety filters (MPSFs). We prove our approach inherits the theoretical recursive feasibility guarantees of the underlying MPC.</p>
+    <div class="center-justify">
+      <img src="../images/safety-filters/multi-step.png">
+      <div>
+        <p class="caption" style="margin-top:10px">
+          <strong>Fig. 1:</strong> Chattering caused by the standard one-step MPSF versus the multi-step MPSF. The multi-step filter reduces the peak-to-peak amplitude of chattering from 16.3cm to 3.6cm.
+        </p>
       </div>
     </div>
 
-    <hr style="margin: 0px; border: none; height: 2px; color: lightgray; background-color: lightgray;">
-
-    <div>
-      <h2 style="display: inline-block;">II - RL Training with Safety Filters</h2>
-      <span style="margin: 1px">
-          &nbsp;
-          <a href="https://ieeexplore.ieee.org/document/10778608"><i class="fas fa-fw fa-link zoom" aria-hidden="true"></i></a>
-          <a href="https://arxiv.org/abs/2410.11671"><i class="ai ai-arxiv" aria-hidden="true"></i></a>
-          <a href="https://tinyurl.com/sf-train-code"><i class="fab fa-fw fa-github zoom" aria-hidden="true"></i></a>
-          <a href="https://tinyurl.com/sf-train-video"><i class="fab fa-youtube" aria-hidden="true"></i></a>
-      </span>
-      <div style="width: 80%; margin: 0 auto; text-align: center;">
-          <img src="../images/safety-filters/sf-train.png" alt="Project Thumbnail">
-          <div>
-            <p style="font-size: 0.8em; color: gray"><strong><em>Fig. 2:</em></strong> An RL controller trained without a safety filter&nbsp;(blue) tracks a reference trajectory (black), but unforeseen interactions with the safety filter cause poor tracking. When trained with a safety filter&nbsp;(green), the behaviour is smoother and more performant. The constraints are in red.</p>
-          </div>
-      </div>
-      <div style="text-align: justify;">
-        Safety filters impart hard safety guarantees to RL controllers while maintaining flexibility. However, adding a safety filter changes how the controller interacts with the environment. If this is not accounted for when training the controller, adding a safety filter can cause undesired behaviours, degrading performance and robustness.
-
-        <p><strong><em>Contributions:</em></strong> In this paper, we analyze three modifications to the training process of any RL controller through the incorporation of a safety filter. These modifications can be combined or used separately and can be applied to any RL controller and safety filter. We found that the modifications significantly improve sample efficiency, eliminate constraint violations during training, improve final performance, and reduce chattering on the certified system.</p>
-
-        <h3>Filtering Training Actions</h3>
-        <p>During training, the controller generates uncertified actions $\textbf{u}_{\text{uncert}, k} \in \mathbb{U}$. By applying the safety filter $\textbf{u}_{\text{cert}, k} = \pi_{\text{SF}}(\textbf{x}_{k}, \textbf{u}_{\text{uncert}, k})$, safety is guaranteed during training and the controller trains on the certified system on which it will be evaluated.</p>
-
-        <h3>Penalizing Corrections</h3>
-        <p>We can penalize corrections during training to encourage the RL to execute safe actions. The magnitude of the correction measures how unsafe the action was. Thus, we penalize the reward by $\alpha \|\textbf{u}_{\text{uncert}, k} - \textbf{u}_{\text{cert}, k} \|_2^2$, where $\alpha > 0$ is a tuneable weight.
-
-        <h3>Safely Resetting the Environment</h3>
-        <p>Sample efficiency can be improved by using the safety filter to avoid initiating an episode in an unsafe state. We will sample $\textbf{x}_0 \sim \mathbb{S}$, where $\mathbb{S}$ is the set of starting states, and then determine the feasibility of certifying an input from that state. If the safety filtering optimization is feasible, $\textbf{x}_0$ is safe. If infeasible, another starting state is randomly generated until a feasible starting state is found.</p>
-      </div>
-    </div>
-
-    <hr style="margin: 0px; border: none; height: 2px; color: lightgray; background-color: lightgray;">
-
-    <div>
-      <h2>Results I - Multi-Step Safety Filters</h2>
+    <h3> 1.1 - Motivation</h3>
+    <div style="text-align: justify;">
       <p>
-          To determine the efficacy of the proposed multi-step MPSF, we ran experiments on a simulated cartpole in the safe learning-based control simulation environment $\texttt{safe-control-gym}$ and on a real quadrotor, the Crazyflie 2.0. The underlying MPC is a robust nonlinear MPC formulation. The experiments test the standard one-step MPSF compared to our proposed multi-step MPSF with $M=2, 5, 10$. Additionally, we consider the one-step MPSF with regularization $J_{\text{reg}}$.
+        Safety filters impart hard safety guarantees to controllers, including deep learning controllers&nbsp;<a style="text-decoration: none;" href="#ref:brunke2022">[1]</a>. Model predictive safety filters&nbsp;(MPSFs) are a category of safety filters that leverage model predictive control&nbsp;(MPC) to predict whether uncertified (i.e., potentially unsafe) inputs sent from the controller will violate the constraints. In the case of a potential future constraint violation, the MPSF determines the minimal deviation from the uncertified input that results in constraint satisfaction.
       </p>
 
-      <h3>Simulation Experiments</h3>
-      <div style="display: flex; align-items: center; margin-bottom: 0px; justify-content: space-between;">
-        <span width="31.5%" style="padding-bottom: 5px;">
-          <img src="../images/safety-filters/multi-step-results/roc_sim.png" alt="Project Thumbnail">
-        </span>
-        <span width="31%">
-          <img src="../images/safety-filters/multi-step-results/mag_sim.png" alt="Project Thumbnail">
-        </span>
-        <span width="38.5%" style="padding-top: 2px;">
-          <img src="../images/safety-filters/multi-step-results/max_sim.png" alt="Project Thumbnail">
-        </span>
-      </div>
-      <p style="font-size: 0.9em; color: gray; text-align: justify; text-align: center; margin-top: 0;">
-        <strong><em>Fig. 3:</em></strong> Results for simulated experiments on a cartpole testing the multi-step approach.
+      <p>
+        Despite strong theoretical guarantees, MPSFs may cause chattering and high-magnitude corrections. Chattering occurs when the controller directs the system towards a constraint boundary and is repeatedly stopped by the safety filter. This leads to jerky and oscillatory behaviour, degrading performance and potentially causing constraint violations.
       </p>
-      <div style="text-align: justify;">
-        Above, we see the norm of the rate of change of the inputs compared to the one-step MPSF is reduced by up to 73%, the magnitude of corrections are reduced by up to 25%, and the maximum correction is reduced by up to 52%. This demonstrates that the proposed filter effectively reduces chattering, achieving a similar norm of the rate of change of the inputs compared to the uncertified control inputs, and generally decreases the overall correction effort as well.
-      </div>
-
-      <h3>Real Hardware Experiments</h3>
-      <div style="display: flex; align-items: center; margin-bottom: 0px; justify-content: space-between;">
-        <span width="33%">
-          <img src="../images/safety-filters/multi-step-results/roc_real.png" alt="Project Thumbnail">
-        </span>
-        <span width="33%">
-          <img src="../images/safety-filters/multi-step-results/mag_real.png" alt="Project Thumbnail">
-        </span>
-        <span width="33%">
-          <img src="../images/safety-filters/multi-step-results/max_real.png" alt="Project Thumbnail">
-        </span>
-      </div>
-      <p style="font-size: 0.9em; color: gray; text-align: justify; text-align: center; margin-top: 10px;">
-        <strong><em>Fig. 4:</em></strong> Results for real hardware experiments on a Crazyflie 2.0 quadrotor testing the multi-step approach.
-      </p>
-      <div style="text-align: justify;">
-        Our proposed approach significantly reduces the norm of the rate of change of the inputs, reducing it by 80% compared to the one-step approach when $M=10$. The maximum correction and magnitude of corrections are either maintained or decreased, and both are decreased by over 30% compared to the one-step approach when $M=10$. We see that the one-step with regularization is outperformed in every metric by the proposed approach with $M=5$ and $M=10$, including the norm of the rate of change of the inputs.
-      </div>
     </div>
 
-    <hr style="margin-top: 20px; border: none; height: 2px; color: lightgray; background-color: lightgray;">
+    <h3> 1.2 - Method</h3>
+    <div style="text-align: justify;">
+      <p>The standard (one-step) safety filter objective function is&nbsp;<a style="text-decoration: none;" href="#ref:brunke2022">[1]</a>:</p>
 
-    <div>
-      <h2>Results II - Training with Safety Filters</h2>
-      <p>
-        The controllers were evaluated on a simulation of a Crazyflie 2.0 using the $\texttt{safe-control-gym}$ and a real Crazyflie 2.0. The trajectory tracking task consists of tracking a figure-eight reference in three dimensions. The position is constrained to be 5% smaller than the full extent of the trajectory.
-      </p>
+      <p>&nbsp;&nbsp;&nbsp;$J_{\text{SF},1} = \|\pi_{\text{uncert}}(\textbf{x}_k) - \textbf{u}_{0|k}\|^2,$</p>
 
-      <h3>Simulation Experiments</h3>
-      <div style="display: flex; align-items: center; margin-bottom: 0px; justify-content: space-between;">
-        <span width="45%">
-          <img src="../images/safety-filters/sf-train/fa_return.png" alt="Project Thumbnail">
-        </span>
-        <span width="45%" style="padding-top: 15px;">
-          <img src="../images/safety-filters/sf-train/fa_convergence.png" alt="Project Thumbnail">
-        </span>
-      </div>
-      <p style="font-size: 0.9em; color: gray; text-align: justify; text-align: center; margin-top: 0;">
-        <strong><em>Fig. 5:</em></strong> Results for simulated experiments on a Crazyflie 2.0 quadrotor testing the various training modifications.
-      </p>
-      <div style="text-align: justify;">
-        Every combination of the modifications was trained and evaluated. "Std." refers to the baseline with no training modifications. The other approaches are combinations of the training modifications: FA = Filtering Actions, PC = Penalizing Corrections, SR = Safe Reset.
+      <p>where $\textbf{x}_k$ is the state at time step $k$, $\pi_{\text{uncert}}$ is the RL policy, and $\textbf{u}_{0|k}$ is the input to be applied (the optimization variable). By generalizing to multiple steps, the filter can minimize corrections over a longer prediction horizon:</p>
 
-        All the modifications improve the return, while filtering actions greatly improves convergence. Combining all the modifications leads to the best return and convergence.
-      </div>
+      <p>&nbsp;&nbsp;&nbsp;$J_{\text{SF},M} = \sum_{j=0}^{M-1} w(j)\| \pi_{\text{uncert}}(\textbf{z}_{j|k}) - \textbf{u}_{j|k} \|^2,$</p>
 
-      <div style="display: flex; align-items: center; margin-bottom: 0px; justify-content: space-between;">
-        <span style="width: 49%; padding-top: 10px;">
-          <img src="../images/safety-filters/sf-train/alph_return.png" alt="Project Thumbnail">
-        </span>
-        <span style="width: 50%">
-          <img src="../images/safety-filters/sf-train/alph_convergence.png" alt="Project Thumbnail">
-        </span>
-      </div>
-      <p style="font-size: 0.9em; color: gray; text-align: justify; text-align: center; margin-top: 0;">
-        <strong><em>Fig. 6:</em></strong> Results for simulated experiments on a Crazyflie 2.0 quadrotor testing the effects of the correction penalty weight $\alpha$ and the constraint violation penalty $\beta$.
-      </p>
-      <div style="text-align: justify;">
-        To study the effects of reward penalties, we conducted experiments with various values of the correction penalization weight $\alpha$ and the constraint violation penalty $\beta$. We compare the safe approach (all of the training modifications together, denoted ``Safe'') with $\alpha \in \{0.1, 1, 10, 100\}$ to the standard training (none of the training modifications, denoted ``Std.'') with $\beta \in \{0, 0.01, 0.1, 1\}$.
+      <p>where $w(\cdot) : \mathbb{N}_{0} \to \mathbb{R}^+$ calculates the weights associated with the $j\text{-th}$ correction, $M$ is the filtering horizon, $\textbf{z}_{j|k}$ is the estimated future state at the $(k + j)$-th time step computed at time step $k$, and $\textbf{u}_{j|k}$ is the input at the $(k + j)$-th time step computed at time step $k$. The inputs are the optimization variables. This allows the agent to proactively correct actions to avoid unsafe states. </p>
 
-        We see that the safe approaches improve performance compared to the standard training without constraint penalties and greatly improve convergence compared to standard training with and without constraint penalties. Additionally, the safe approaches reduce training time constraint violations to nearly zero.
-      </div>
+      <p><strong><em>Contributions:</em></strong> We propose generalizing the standard safety filter objective function to minimize corrections over a horizon. We apply this approach to model predictive safety filters (MPSFs) and prove our approach inherits the theoretical recursive feasibility guarantees of the underlying MPC. We demonstrate this multi-step approach reduces chattering, jerkiness, and other potentially unsafe corrective actions.</p>
+    </div>
 
-      <h3>Real Hardware Experiments</h3>
-      <div style="display: flex; align-items: center; margin-bottom: 0px; justify-content: space-between;">
-        <span width="45%" style="padding-top: 15px;">
-          <img src="../images/safety-filters/sf-train/return_real.png" alt="Project Thumbnail">
-        </span>
-        <span width="45%">
-          <img src="../images/safety-filters/sf-train/convergence_real.png" alt="Project Thumbnail">
-        </span>
-      </div>
-      <p style="font-size: 0.9em; color: gray; text-align: justify; text-align: center; margin-top: 0;">
-        <strong><em>Fig. 7:</em></strong> Results for real hardware experiments on a Crazyflie 2.0 quadrotor testing the combined training modifications.
-      </p>
-      <div style="text-align: justify;">
-        The safe approach increases the total return by up to 20%. Compared to the $\beta=1$ baseline, the return is increased by up to 1.5%. The convergence of the safe approaches and the constraint penalty approach are roughly equal and better than the standard training.
-      </div>
+    <h2>1.3 - Results</h2>
+    <p>
+      To determine the efficacy of the proposed multi-step MPSF, we ran experiments on a simulated cartpole in the safe learning-based control simulation environment $\texttt{safe-control-gym}$&nbsp;<a style="text-decoration: none;" href="#ref:safe-control-gym">[2]</a> and on a real quadrotor, the Crazyflie 2.0. The underlying MPC is a robust nonlinear MPC formulation&nbsp;<a style="text-decoration: none;" href="#ref:nlmpc">[3]</a>. The experiments test the standard one-step MPSF compared to our proposed multi-step MPSF with $M=2, 5, 10$. Additionally, we consider the one-step MPSF with regularization $J_{\text{reg}}$.
+    </p>
+
+    <h3>1.3.1 - Simulation Experiments</h3>
+    <div class="image-row">
+      <span width="31.5%" style="padding-bottom: 5px;">
+        <img src="../images/safety-filters/multi-step-results/roc_sim.png">
+      </span>
+      <span width="31%">
+        <img src="../images/safety-filters/multi-step-results/mag_sim.png">
+      </span>
+      <span width="38.5%" style="padding-top: 2px;">
+        <img src="../images/safety-filters/multi-step-results/max_sim.png">
+      </span>
+    </div>
+    <p class="caption">
+      <strong>Fig. 3:</strong> Results for simulated experiments on a cartpole testing the multi-step approach.
+    </p>
+    <div style="text-align: justify;">
+      Above, we see the norm of the rate of change of the inputs compared to the one-step MPSF is reduced by up to 73%, the magnitude of corrections is reduced by up to 25%, and the maximum correction is reduced by up to 52%. This demonstrates that the proposed filter effectively reduces chattering, achieving a similar norm of the rate of change of the inputs compared to the uncertified control inputs, and generally decreases the overall correction effort as well.
+    </div>
+
+    <h3>1.3.2 - Real Hardware Experiments</h3>
+    <div class="image-row">
+      <span width="33%">
+        <img src="../images/safety-filters/multi-step-results/roc_real.png">
+      </span>
+      <span width="33%">
+        <img src="../images/safety-filters/multi-step-results/mag_real.png">
+      </span>
+      <span width="33%">
+        <img src="../images/safety-filters/multi-step-results/max_real.png">
+      </span>
+    </div>
+    <p style="margin-top: 10px;" class="caption">
+      <strong>Fig. 4:</strong> Results for real hardware experiments on a Crazyflie 2.0 quadrotor testing the multi-step approach.
+    </p>
+    <div style="text-align: justify;">
+      Our proposed approach significantly reduces the norm of the rate of change of the inputs, reducing it by 80% compared to the one-step approach when $M=10$. The maximum correction and magnitude of corrections are either maintained or decreased, and both are decreased by over 30% compared to the one-step approach when $M=10$. We see that the one-step with regularization is outperformed in every metric by the proposed approach with $M=5$ and $M=10$, including the norm of the rate of change of the inputs.
     </div>
   </section>
 
-  <hr style="margin-top: 20px; border: none; height: 2px; color: lightgray; background-color: lightgray;">
+  <hr style="margin-top: 10px">
 
-  <section id="full-video" style="width: 80%; margin: 0 auto; text-align: center;">
+  <section id="sf-train">
+    <h2 style="display: inline-block;">2 - RL Training with Safety Filters</h2>
+    <span style="margin: 1px">
+      &nbsp;
+      <a href="https://ieeexplore.ieee.org/document/10778608"><i class="fas fa-fw fa-link zoom" aria-hidden="true"></i></a>
+      <a href="https://arxiv.org/abs/2410.11671"><i class="ai ai-arxiv" aria-hidden="true"></i></a>
+      <a href="https://tinyurl.com/sf-train-code"><i class="fab fa-fw fa-github zoom" aria-hidden="true"></i></a>
+      <a href="https://tinyurl.com/sf-train-video"><i class="fab fa-youtube" aria-hidden="true"></i></a>
+    </span>
+
+    <div class="center-justify">
+      <img src="../images/safety-filters/sf-train.png">
+      <div>
+        <p class="caption" style="margin-top:10px">
+          <strong>Fig. 2:</strong> An RL controller trained without a safety filter&nbsp;(blue) tracks a reference trajectory (black), but unforeseen interactions with the safety filter cause poor tracking. When trained with a safety filter&nbsp;(green), the behaviour is smoother and more performant. The constraints are in red.
+        </p>
+      </div>
+    </div>
+
+    <h3>2.1 - Motivation</h3>
+    <div style="text-align: justify;">
+      Safety filters impart hard safety guarantees to RL controllers while maintaining flexibility. However, adding a safety filter changes how the controller interacts with the environment. If this is not accounted for when training the controller, adding a safety filter can cause undesired behaviours, degrading performance and robustness.
+
+      <p><strong><em>Contributions:</em></strong> In this paper, we analyze three modifications to the training process of any RL controller through the incorporation of a safety filter. These modifications can be combined or used separately and can be applied to any RL controller and safety filter. We found that the modifications significantly improve sample efficiency, eliminate constraint violations during training, improve final performance, and reduce chattering on the certified system.</p>
+    </div>
+
+    <h3>2.2 - Methods</h3>
+    <div style="text-align: justify;">
+      <h4>2.2.1 - Filtering Training Actions</h4>
+      <p>During training, the controller generates uncertified actions $\textbf{u}_{\text{uncert}, k} \in \mathbb{U}$. By applying the safety filter $\textbf{u}_{\text{cert}, k} = \pi_{\text{SF}}(\textbf{x}_{k}, \textbf{u}_{\text{uncert}, k})$, safety is guaranteed during training&nbsp;<a style="text-decoration: none;" href="#ref:hanna">[4]</a>, improving sample efficiency by focusing on safe areas. Additionally, this maximizes the return on the final certified system on which it will be evaluated.</p>
+
+      <h4>2.2.2 - Penalizing Corrections</h4>
+      <p>We can penalize corrections during training to encourage the RL to execute safe actions&nbsp;<a style="text-decoration: none;" href="#ref:hanna">[4]</a>. The magnitude of the correction measures how unsafe the action was. Thus, we penalize the reward by $\alpha \|\textbf{u}_{\text{uncert}, k} - \textbf{u}_{\text{cert}, k} \|_2^2$, where $\alpha > 0$ is a tuneable weight. This reduces corrections and thus reduces chattering and jerkiness.
+
+      <h4>2.2.3 - Safely Resetting the Environment</h4>
+      <p>Sample efficiency can be improved by using the safety filter to avoid initiating an episode in an unsafe state. We will sample $\textbf{x}_0 \sim \mathbb{S}$, where $\mathbb{S}$ is the set of starting states, and then determine the feasibility of certifying an input from that state. If the safety filtering optimization is feasible, $\textbf{x}_0$ is safe. If infeasible, another starting state is randomly generated until a feasible starting state is found.</p>
+    </div>
+
+    <h3>2.3 - Results</h3>
+    <p>
+      The controllers were evaluated on a simulation of a Crazyflie 2.0 using the $\texttt{safe-control-gym}$&nbsp;<a style="text-decoration: none;" href="#ref:safe-control-gym">[2]</a> and a real Crazyflie 2.0&nbsp;<a style="text-decoration: none;" href="#ref:sim2real">[5]</a>. The trajectory tracking task consists of tracking a figure-eight reference in three dimensions. The position is constrained to be 5% smaller than the full extent of the trajectory.
+    </p>
+
+    <h4>2.3.1 - Simulation Experiments</h4>
+    <div class="image-row">
+      <span width="45%">
+        <img src="../images/safety-filters/sf-train/fa_return.png">
+      </span>
+      <span width="45%" style="padding-top: 15px;">
+        <img src="../images/safety-filters/sf-train/fa_convergence.png">
+      </span>
+    </div>
+    <p class="caption">
+      <strong>Fig. 5:</strong> Results for simulated experiments on a Crazyflie 2.0 quadrotor testing the various training modifications.
+    </p>
+
+    <div style="text-align: justify;">
+      Every combination of the modifications was trained and evaluated. "Std." refers to the baseline with no training modifications. The other approaches are combinations of the training modifications: FA = Filtering Actions, PC = Penalizing Corrections, SR = Safe Reset.
+
+      All the modifications improve the return, while filtering actions significantly improves convergence. Combining all the modifications leads to the best return and convergence.
+    </div>
+
+    <div class="image-row">
+      <span style="width: 49%; padding-top: 20px;">
+        <img src="../images/safety-filters/sf-train/alph_return.png">
+      </span>
+      <span style="width: 50%">
+        <img src="../images/safety-filters/sf-train/alph_convergence.png">
+      </span>
+    </div>
+    <p class="caption">
+      <strong>Fig. 6:</strong> Results for simulated experiments on a Crazyflie 2.0 quadrotor testing the effects of the correction penalty weight $\alpha$ and the constraint violation penalty $\beta$.
+    </p>
+    <div style="text-align: justify;">
+      To study the effects of reward penalties, we conducted experiments with various values of the correction penalization weight $\alpha$ and the constraint violation penalty $\beta$. We compare the safe approach (all of the training modifications together, denoted "Safe") with $\alpha \in \{0.1, 1, 10, 100\}$ to the standard training (none of the training modifications, denoted "Std.") with $\beta \in \{0, 0.01, 0.1, 1\}$.
+
+      We see that the safe approaches improve performance compared to the standard training without constraint penalties and significantly improve convergence compared to standard training with and without constraint penalties. Additionally, the safe approaches reduce constraint violations during training to nearly zero.
+    </div>
+
+    <h4>2.3.2 - Real Hardware Experiments</h4>
+    <div class="image-row">
+      <span width="45%" style="padding-top: 15px;">
+        <img src="../images/safety-filters/sf-train/return_real.png">
+      </span>
+      <span width="45%">
+        <img src="../images/safety-filters/sf-train/convergence_real.png">
+      </span>
+    </div>
+    <p class="caption">
+      <strong>Fig. 7:</strong> Results for real hardware experiments on a Crazyflie 2.0 quadrotor testing the combined training modifications.
+    </p>
+    <div style="text-align: justify;">
+      The safe approach increases the total return by up to 20% compared to the standard training and by up to 1.5% for the $\beta=1$ baseline. The convergence of the safe approaches and the constraint penalty approach are roughly equal and better than the standard training.
+    </div>
+  </section>
+
+  <hr style="margin-top: 20px;">
+
+  <section id="full-video" class="center-justify">
     <h2>Watch the Full Video</h2>
     <div>
       <iframe
@@ -278,6 +290,28 @@ author_profile: true
   doi={10.1109/LRA.2024.3512374}
 }
       </code></pre>
+    </div>
+  </section>
+
+
+  <section id="references">
+    <h2>References</h2>
+    <div style="font-size: 0.9em;">
+      <p id="ref:brunke2022">
+        [1] L. Brunke, M. Greeff, A. W. Hall, Z. Yuan, S. Zhou, J. Panerati, and A. P. Schoellig, “Safe learning in robotics: From learning-based control to safe reinforcement learning,” <em>Annual Review of Control, Robotics, and Autonomous Systems</em>, 2022.
+      </p>
+      <p id="ref:safe-control-gym">
+        [2] Z. Yuan, A. W. Hall, S. Zhou, L. Brunke, M. Greeff, J. Panerati, and A. P. Schoellig, “$\texttt{safe-control-gym}$: A unified benchmark suite for safe learning-based control and Reinforcement learning in robotics,” <em>IEEE Robotics and Automation Letters</em>, 2022.
+      </p>
+      <p id="ref:nlmpc">
+        [3] J. K&#246;hler, R. Soloperto, M. A. M&#252;ller, and F. Allg&#246;wer, “A computationally efficient robust model predictive control framework for uncertain nonlinear systems - extended version,” <em>IEEE Transactions on Automatic Control</em>, 2021.
+      </p>
+      <p id="ref:hanna">
+        [4] H. Krasowski, J. Thumm, M. M&#252;ller, L. Sch&#228;fer, X. Wang, and M. Althoff, “Provably safe reinforcement learning: Conceptual analysis, survey, and benchmarking,” <em>Transactions on Machine Learning Research</em>, 2023.
+      </p>
+      <p id="ref:sim2real">
+        [5] S. Teetaert, W. Zhao, et al., “A remote sim2real aerial competition: Fostering reproducibility and solutions' diversity in robotics challenges,” <em>arXiv preprint arXiv:2308.16743</em>, 2023.
+      </p>
     </div>
   </section>
 </body>
