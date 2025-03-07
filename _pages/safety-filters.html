@@ -84,6 +84,8 @@ author_profile: true
       </p>
     </div>
 
+    <hr class="minor_hr">
+
     <h3> 1.2 - Method</h3>
     <div style="text-align: justify;">
       <p>The standard (one-step) safety filter objective function is&nbsp;<a style="text-decoration: none;" href="#ref:brunke2022">[1]</a>:</p>
@@ -99,12 +101,14 @@ author_profile: true
       <p><strong><em>Contributions:</em></strong> We propose generalizing the standard safety filter objective function to minimize corrections over a horizon. We apply this approach to model predictive safety filters (MPSFs) and prove our approach inherits the theoretical recursive feasibility guarantees of the underlying MPC. We demonstrate this multi-step approach reduces chattering, jerkiness, and other potentially unsafe corrective actions.</p>
     </div>
 
-    <h2>1.3 - Results</h2>
+    <hr class="minor_hr">
+
+    <h3>1.3 - Results</h3>
     <p>
       To determine the efficacy of the proposed multi-step MPSF, we ran experiments on a simulated cartpole in the safe learning-based control simulation environment $\texttt{safe-control-gym}$&nbsp;<a style="text-decoration: none;" href="#ref:safe-control-gym">[2]</a> and on a real quadrotor, the Crazyflie 2.0. The underlying MPC is a robust nonlinear MPC formulation&nbsp;<a style="text-decoration: none;" href="#ref:nlmpc">[3]</a>. The experiments test the standard one-step MPSF compared to our proposed multi-step MPSF with $M=2, 5, 10$. Additionally, we consider the one-step MPSF with regularization $J_{\text{reg}}$.
     </p>
 
-    <h3>1.3.1 - Simulation Experiments</h3>
+    <h4>1.3.1 - Simulation Experiments</h4>
     <div class="image-row">
       <span style="padding-bottom: 5px;">
         <img src="../images/safety-filters/multi-step-results/roc_sim.png" alt="Graph of rate of change of inputs">
@@ -123,7 +127,7 @@ author_profile: true
       Above, we see the norm of the rate of change of the inputs compared to the one-step MPSF is reduced by up to 73%, the magnitude of corrections is reduced by up to 25%, and the maximum correction is reduced by up to 52%. This demonstrates that the proposed filter effectively reduces chattering, achieving a similar norm of the rate of change of the inputs compared to the uncertified control inputs, and generally decreases the overall correction effort as well.
     </div>
 
-    <h3>1.3.2 - Real Hardware Experiments</h3>
+    <h4>1.3.2 - Real Hardware Experiments</h4>
     <div class="image-row">
       <span>
         <img src="../images/safety-filters/multi-step-results/roc_real.png" alt="Graph of rate of change of inputs">
@@ -171,6 +175,8 @@ author_profile: true
       <p><strong><em>Contributions:</em></strong> In this paper, we analyze three modifications to the training process of any RL controller through the incorporation of a safety filter. These modifications can be combined or used separately and can be applied to any RL controller and safety filter. We found that the modifications significantly improve sample efficiency, eliminate constraint violations during training, improve final performance, and reduce chattering on the certified system.</p>
     </div>
 
+    <hr class="minor_hr">
+
     <h3>2.2 - Methods</h3>
     <div style="text-align: justify;">
       <h4>2.2.1 - Filtering Training Actions</h4>
@@ -182,6 +188,8 @@ author_profile: true
       <h4>2.2.3 - Safely Resetting the Environment</h4>
       <p>Sample efficiency can be improved by using the safety filter to avoid initiating an episode in an unsafe state. We will sample $\textbf{x}_0 \sim \mathbb{S}$, where $\mathbb{S}$ is the set of starting states, and then determine the feasibility of certifying an input from that state. If the safety filtering optimization is feasible, $\textbf{x}_0$ is safe. If infeasible, another starting state is randomly generated until a feasible starting state is found.</p>
     </div>
+
+    <hr class="minor_hr">
 
     <h3>2.3 - Results</h3>
     <p>
