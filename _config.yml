@@ -125,7 +125,9 @@ publication_category:
   thesis:
     title: 'Theses'
   workshop:
-    title: 'Workshops'
+    title: 'Organized Workshops'
+  workshop_paper:
+    title: 'Workshop Papers'
 
 # Reading Files
 include:
