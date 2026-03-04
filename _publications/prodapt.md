@@ -8,6 +8,7 @@ date: 2025-01-01
 image: ../images/publications/prodapt.png
 permalink: /publication/prodapt
 publication_category: conference
+link: https://ieeexplore.ieee.org/document/11128171
 arxiv: https://arxiv.org/abs/2503.00193
 github: https://tinyurl.com/prodapt-code
 video: https://tinyurl.com/prodapt-video
